@@ -25,12 +25,22 @@ the `Mobster::Helpers`.
 In RSpec, that might look like:
 
     # spec/request_spec_helper.rb
+    require 'mobster/rspec'
 
-    RSpec.configure do |config|
-      # ...
-      config.include Mobster::Helpers
-      # ...
-    end
+Currently, there are two methods in the API:
+
+#### time\_in\_browser\_zone
+
+Return the passed time in the browser's timezone formatted by the second
+argument.
+
+    expect(page).to have_time_in_browser_zone(Time.now, '%D' # => 07/03/14)
+
+#### current\_timezone
+
+Return the current timezone of the browser.
+
+    current_timezone #=> 'MDT'
 
 ## Contributing
 
